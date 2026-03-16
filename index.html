@@ -123,7 +123,7 @@
             margin: 0.2rem 0;
         }
 
-        /* Image styles */
+        /* Image styles with fallback */
         .image-top {
             width: 130px;
             height: 130px;
@@ -133,6 +133,7 @@
             object-fit: cover;
             display: block;
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+            background: #ffb6c1; /* fallback color */
         }
 
         .image-bottom {
@@ -144,6 +145,7 @@
             object-fit: cover;
             display: block;
             box-shadow: 0 10px 25px rgba(255, 105, 180, 0.4);
+            background: #ffb6c1; /* fallback color */
         }
 
         .message-card {
@@ -288,6 +290,11 @@
             z-index: 100;
             cursor: pointer;
         }
+
+        /* Debug border - image dikhegi ya nahi */
+        .debug-img {
+            border: 2px solid red;
+        }
     </style>
 </head>
 <body>
@@ -308,10 +315,11 @@
     <!-- Main Card -->
     <div class="card" id="mainCard" style="display: none;">
         
-        <!-- ===== IMAGE 1 - TOP WALI ===== -->
-        <!-- REPO MEIN JO NAAM DIYA HAI WOH DAALO -->
-        <img class="image-top" src="image1.jpg" alt="Bhavna - Image 1">
-        <!-- AGAR PNG HAI TO image1.png KARO -->
+        <!-- ===== IMAGE 1 - TOP ===== -->
+        <!-- YAHAN EXACT NAAM DAALO -->
+        <img class="image-top" src="image1.png" alt="Bhavna" 
+             onerror="this.src='https://via.placeholder.com/130x130/ffb6c1/ffffff?text=Bhavna'">
+        <!-- Agar image nahi milti to placeholder dikhega -->
         
         <div class="header-label">happy birthday</div>
         <h1 class="name">Bhavna</h1>
@@ -350,11 +358,16 @@
         
         <div id="reveal-wish">happy birthday bhavna! 💗</div>
         
-        <!-- ===== IMAGE 2 - BOTTOM WALI ===== -->
-        <!-- REPO MEIN JO NAAM DIYA HAI WOH DAALO -->
-        <img class="image-bottom" src="image2.jpg" alt="Bhavna - Image 2">
-        <!-- AGAR PNG HAI TO image2.png KARO -->
+        <!-- ===== IMAGE 2 - BOTTOM ===== -->
+        <!-- YAHAN EXACT NAAM DAALO -->
+        <img class="image-bottom" src="image2.png" alt="Bhavna" 
+             onerror="this.src='https://via.placeholder.com/100x100/ffb6c1/ffffff?text=Bhavna'">
+        <!-- Agar image nahi milti to placeholder dikhega -->
         
+        <!-- DEBUG INFO - AGAR IMAGE NAHI DIKHTI TO YEH DEKHO -->
+        <p style="color: #ffb6c1; font-size: 0.7rem; margin-top: 1rem; opacity: 0.5;">
+            Images: image1.png | image2.png
+        </p>
     </div>
 
     <!-- Audio -->
@@ -373,7 +386,6 @@
             const music = document.getElementById('bgMusic');
             music.play().catch(() => {});
             
-            // Small burst on open
             for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
                     createBurst();
@@ -406,7 +418,6 @@
             btn.disabled = true;
             wish.classList.add('show');
             
-            // 200 emojis burst
             for (let i = 0; i < 200; i++) {
                 setTimeout(() => {
                     createBurst();
