@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Bhavna ❤️</title>
+    <title>Happy Birthday Bhavna! 💗</title>
     
     <!-- Simple fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,7 +18,7 @@
         }
 
         body {
-            background: linear-gradient(145deg, #fdf0f5, #fcd9e6);
+            background: linear-gradient(145deg, #fbe9f0, #fcd9e4);
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
             display: flex;
@@ -27,44 +27,43 @@
             position: relative;
         }
 
-        /* Floating hearts - sirf tumhare wale emojis */
-        .floating-emoji {
+        /* Simple floating balloons */
+        .floating-balloon {
             position: absolute;
             font-size: 2rem;
             opacity: 0.3;
-            pointer-events: none;
+            animation: float 6s infinite ease-in-out;
             z-index: 1;
-            animation: floatAround 8s infinite ease-in-out;
         }
 
-        @keyframes floatAround {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* Main card */
-        .card {
+        /* Main card - first wala style */
+        .birthday-card {
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
-            border-radius: 50px;
+            border-radius: 40px;
             padding: 2.5rem 2rem;
             max-width: 400px;
             width: 90%;
-            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 15px 35px rgba(255, 130, 160, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.8);
             position: relative;
             z-index: 10;
             text-align: center;
         }
 
-        /* Entry overlay */
-        .entry-screen {
+        /* Entry overlay - simple */
+        .entry-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: #fcd9e6;
+            background: #fcd9e4;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -74,41 +73,39 @@
 
         .entry-box {
             background: white;
-            padding: 2.5rem;
-            border-radius: 60px;
-            text-align: center;
-            max-width: 320px;
+            padding: 2rem;
+            border-radius: 40px;
+            max-width: 300px;
             width: 90%;
-            border: 3px solid #ffb3c6;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(255, 100, 130, 0.2);
         }
 
         .entry-box h2 {
             font-family: 'Sacramento', cursive;
-            font-size: 3.5rem;
-            color: #ff4d6d;
-            line-height: 1.2;
+            font-size: 3.2rem;
+            color: #ff5e7c;
+            margin: 0.2rem 0;
         }
 
         .entry-btn {
-            background: #ffb3c6;
+            background: #ffb0c0;
             border: none;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             border-radius: 40px;
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 500;
-            margin-top: 1.5rem;
+            margin-top: 1rem;
             cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 4px 0 #b34f68;
-            transition: 0.1s;
+            border: 1px solid white;
+            color: #2d1e24;
         }
 
         .entry-btn:active {
-            transform: translateY(4px);
-            box-shadow: none;
+            transform: scale(0.97);
         }
 
-        .entry-screen.hide {
+        .entry-overlay.hide {
             opacity: 0;
             pointer-events: none;
         }
@@ -120,22 +117,23 @@
 
         .main-content.show {
             display: block;
-            animation: pop 0.5s;
+            animation: fadeScale 0.4s;
         }
 
-        @keyframes pop {
-            0% { transform: scale(0.9); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes fadeScale {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
-        /* Profile section */
-        .profile {
+        /* Header section */
+        .header {
             margin-bottom: 1.5rem;
         }
 
-        .cake-big {
+        .cake-large {
             font-size: 4rem;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
             animation: bounce 2s infinite;
         }
 
@@ -144,325 +142,302 @@
             50% { transform: translateY(-8px); }
         }
 
-        .name {
+        .name-title {
             font-family: 'Sacramento', cursive;
-            font-size: 4.5rem;
-            color: #ff4d6d;
+            font-size: 4.2rem;
+            color: #ff5e7c;
             line-height: 1;
-            margin: 0.2rem 0;
+            margin: 0.1rem 0;
+            text-shadow: 1px 1px 0 #ffe2ec;
         }
 
-        .badge {
-            background: #ffb3c6;
-            color: white;
+        .age-sticker {
+            background: #ffd3de;
             padding: 0.3rem 1.2rem;
             border-radius: 40px;
-            display: inline-block;
             font-size: 0.9rem;
             font-weight: 500;
-            border: 2px solid white;
+            color: #a13e55;
+            display: inline-block;
+            border: 1px solid white;
         }
 
-        /* Message box */
-        .message {
+        /* Message card - simple */
+        .message-card {
             background: #fff5f9;
-            border-radius: 40px;
+            border-radius: 30px;
             padding: 1.8rem;
-            margin: 1.8rem 0;
-            border: 2px dashed #ff99bb;
+            margin: 2rem 0;
+            border: 1px dashed #ffa5bc;
         }
 
-        .message p {
-            color: #4a2f36;
-            line-height: 2;
+        .message-card p {
+            color: #442f37;
             font-size: 0.95rem;
+            line-height: 1.9;
         }
 
-        .emoji-line {
-            background: white;
-            padding: 0.8rem;
-            border-radius: 40px;
-            margin: 1.2rem 0 0.5rem;
-            font-size: 1.2rem;
-            border: 1px solid #ffb3c6;
+        .greeting-text {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #ff5e7c;
+            margin-bottom: 0.5rem;
         }
 
-        .emoji-line span {
-            margin: 0 5px;
+        .emoji-bar {
+            margin-top: 1rem;
+            font-size: 1.4rem;
+            letter-spacing: 6px;
         }
 
-        /* Affection row - sirf tumhare emojis */
-        .affection-row {
+        /* Simple counters */
+        .counter-row {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 2rem;
             margin: 1.5rem 0;
         }
 
-        .affection-item {
-            background: white;
-            padding: 0.8rem 1.5rem;
+        .counter-item {
+            background: #ffecf2;
+            padding: 0.6rem 1.5rem;
             border-radius: 40px;
-            border: 2px solid #ffb3c6;
-            box-shadow: 0 3px 0 #ffb3c6;
+            border: 1px solid #ffb3c6;
         }
 
-        .affection-number {
-            font-size: 2rem;
+        .counter-number {
+            font-size: 1.8rem;
             font-weight: 600;
-            color: #ff4d6d;
+            color: #ff5e7c;
             display: flex;
             align-items: center;
             gap: 5px;
         }
 
-        .affection-label {
+        .counter-label {
             font-size: 0.8rem;
-            color: #7c4f5c;
+            color: #6d4654;
         }
 
         /* Cake section */
-        .cake-area {
-            background: #ffeaf2;
+        .cake-section {
+            background: #fff0f5;
             border-radius: 70px 70px 30px 30px;
             padding: 2rem 1rem;
-            margin: 1.5rem 0;
-            border: 3px solid white;
+            margin: 1.8rem 0;
+            border: 2px solid white;
         }
 
-        .cake-emoji {
+        .cake-wrapper {
             position: relative;
             display: inline-block;
             font-size: 5rem;
         }
 
-        .candle-stick {
+        .candle-simple {
             position: absolute;
-            top: 8px;
+            top: 5px;
             left: 50%;
             transform: translateX(-50%);
-            width: 8px;
-            height: 30px;
-            background: #fad1b0;
+            width: 7px;
+            height: 28px;
+            background: #fad7b3;
             border-radius: 4px;
         }
 
-        .candle-flame {
+        .flame-simple {
             position: absolute;
             top: -20px;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 30px;
-            background: radial-gradient(circle at 40% 30%, #fff9e6, #ffb347);
+            width: 18px;
+            height: 28px;
+            background: radial-gradient(circle at 40% 30%, #fff9cc, #ffa726);
             border-radius: 50% 50% 20% 20%;
-            box-shadow: 0 -5px 20px #ff8c00;
-            animation: flameFlicker 0.1s infinite alternate;
+            box-shadow: 0 -3px 15px #ffa726;
+            animation: flicker 0.1s infinite alternate;
         }
 
-        .candle-flame.hide {
+        @keyframes flicker {
+            from { transform: translateX(-50%) scale(1); }
+            to { transform: translateX(-50%) scale(1.1); }
+        }
+
+        .flame-simple.hide {
             display: none;
         }
 
-        @keyframes flameFlicker {
-            0% { transform: translateX(-50%) scale(1); }
-            100% { transform: translateX(-50%) scale(1.1); }
-        }
-
-        .blow-button {
+        .blow-candle-btn {
             background: #ffb3c6;
-            border: 3px solid white;
+            border: 2px solid white;
             padding: 0.8rem 2rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
+            border-radius: 40px;
+            font-size: 1.1rem;
             font-weight: 500;
-            color: #2f1a21;
             cursor: pointer;
-            box-shadow: 0 5px 0 #b34f68;
-            transition: 0.1s;
             margin-top: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            color: #2f1c23;
         }
 
-        .blow-button:active {
-            transform: translateY(5px);
-            box-shadow: none;
+        .blow-candle-btn:active {
+            transform: scale(0.97);
         }
 
-        .blow-button:disabled {
+        .blow-candle-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
-            transform: none;
-            box-shadow: 0 5px 0 #b34f68;
         }
 
-        /* Wish reveal */
-        .wish-text {
+        /* Wish message */
+        .wish-message {
             font-family: 'Sacramento', cursive;
-            font-size: 3rem;
-            color: #ff4d6d;
-            margin: 1rem 0;
+            font-size: 2.8rem;
+            color: #ff5e7c;
+            margin: 1rem 0 0.2rem;
             display: none;
-            animation: wishPop 0.5s;
         }
 
-        @keyframes wishPop {
-            0% { transform: scale(0); }
-            80% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-        .wish-text.show {
+        .wish-message.show {
             display: block;
+            animation: pop 0.4s;
         }
 
-        /* Footer emojis - sirf tumhare wale */
-        .footer-emojis {
+        @keyframes pop {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Footer - simple */
+        .footer-emoji {
             display: flex;
             justify-content: center;
-            gap: 1.2rem;
-            font-size: 1.8rem;
+            gap: 1rem;
+            font-size: 1.5rem;
             margin-top: 1rem;
-            opacity: 0.7;
+            opacity: 0.6;
         }
 
         /* Simple burst effect */
         .burst-emoji {
             position: absolute;
-            font-size: 2rem;
+            font-size: 1.8rem;
             pointer-events: none;
             z-index: 1000;
-            animation: burstFly 1.5s forwards;
+            animation: burst 1.2s forwards;
         }
 
-        @keyframes burstFly {
-            0% { transform: scale(0) translate(0, 0); opacity: 1; }
+        @keyframes burst {
+            0% { transform: scale(0); opacity: 1; }
             100% { transform: scale(1.5) translate(var(--x), var(--y)); opacity: 0; }
         }
 
         /* Music button */
-        .music-btn {
+        .music-toggle {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            bottom: 15px;
+            right: 15px;
             background: white;
-            padding: 0.8rem;
-            border-radius: 50%;
-            font-size: 1.2rem;
-            border: 2px solid #ffb3c6;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            font-size: 1rem;
+            border: 1px solid #ffb3c6;
             cursor: pointer;
             z-index: 100;
-            box-shadow: 0 3px 0 #ffb3c6;
-        }
-
-        .music-btn:active {
-            transform: translateY(3px);
-            box-shadow: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating emojis - sirf tumhare wale -->
-    <div class="floating-emoji" style="left: 5%; top: 20%;">🩷</div>
-    <div class="floating-emoji" style="right: 8%; top: 15%;">💗</div>
-    <div class="floating-emoji" style="left: 15%; bottom: 25%;">💕</div>
-    <div class="floating-emoji" style="right: 12%; bottom: 20%;">❤️</div>
-    <div class="floating-emoji" style="left: 20%; top: 60%;">💋</div>
-    <div class="floating-emoji" style="right: 20%; top: 70%;">🥹</div>
-    <div class="floating-emoji" style="left: 10%; top: 80%;">🤭</div>
-    <div class="floating-emoji" style="right: 15%; top: 40%;">🧿</div>
+    <!-- Simple balloons -->
+    <div class="floating-balloon" style="left: 5%; top: 15%;">🎈</div>
+    <div class="floating-balloon" style="right: 8%; top: 20%;">🎈</div>
+    <div class="floating-balloon" style="left: 10%; bottom: 20%;">🎈</div>
+    <div class="floating-balloon" style="right: 12%; bottom: 25%;">🎈</div>
 
-    <!-- Entry Screen -->
-    <div class="entry-screen" id="entryScreen">
+    <!-- Entry overlay -->
+    <div class="entry-overlay" id="entryOverlay">
         <div class="entry-box">
-            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🥹🩷</div>
+            <div style="font-size: 2.5rem; margin-bottom: 0.3rem;">🎂</div>
             <h2>Bhavna</h2>
-            <p style="color: #7c4f5c; margin: 0.5rem 0;">❤️💕💗</p>
-            <button class="entry-btn" onclick="openCard()">
-                Click karo na 💋
-            </button>
+            <p style="color: #6d4654; margin: 0.3rem 0;">tap to open</p>
+            <button class="entry-btn" onclick="openCard()">open</button>
         </div>
     </div>
 
-    <!-- Main Birthday Card -->
+    <!-- Main birthday card -->
     <div class="main-content" id="mainContent">
-        <div class="card">
-            <div class="profile">
-                <div class="cake-big">🎂</div>
-                <h1 class="name">Bhavna</h1>
-                <span class="badge">Happy Birthday 🩷</span>
+        <div class="birthday-card">
+            <!-- Header -->
+            <div class="header">
+                <div class="cake-large">🎂</div>
+                <h1 class="name-title">Bhavna</h1>
+                <span class="age-sticker">happy birthday! 💗</span>
             </div>
 
-            <!-- Message box -->
-            <div class="message">
+            <!-- Message card - ENGLISH -->
+            <div class="message-card">
                 <p>
-                    <span style="font-size: 1.3rem; font-weight: 500; color: #ff4d6d;">My Bhavna 🩷</span><br><br>
-                    Aaj ka din special hai kyuki aapka birthday hai! 
-                    Bas itna chahta hoon ki aap hamesha khush raho ❤️
+                    <span class="greeting-text">Dear Bhavna,</span><br>
+                    On your birthday, I just wish that you always stay happy, 
+                    keep smiling, and never lose your sweet smile. 
+                    You deserve all the happiness in the world. ❤️
                 </p>
-                <div class="emoji-line">
-                    <span>💋</span> <span>🩷</span> <span>💗</span> <span>💕</span> <span>❤️</span> <span>🥹</span> <span>🤭</span> <span>🧿</span>
+                <div class="emoji-bar">
+                    <span>💋</span> <span>🩷</span> <span>💗</span> <span>💕</span> 
+                    <span>❤️</span> <span>🥹</span> <span>🤭</span> <span>🧿</span>
                 </div>
             </div>
 
-            <!-- Affection row - simple -->
-            <div class="affection-row">
-                <div class="affection-item">
-                    <div class="affection-number">
+            <!-- Simple counters -->
+            <div class="counter-row">
+                <div class="counter-item">
+                    <div class="counter-number">
                         <span>💋</span> 1
                     </div>
-                    <div class="affection-label">kiss</div>
+                    <div class="counter-label">kiss</div>
                 </div>
-                <div class="affection-item">
-                    <div class="affection-number">
+                <div class="counter-item">
+                    <div class="counter-number">
                         <span>🩷</span> 1
                     </div>
-                    <div class="affection-label">dil</div>
-                </div>
-                <div class="affection-item">
-                    <div class="affection-number">
-                        <span>🧿</span> 1
-                    </div>
-                    <div class="affection-label">nazar</div>
+                    <div class="counter-label">heart</div>
                 </div>
             </div>
 
             <!-- Cake section -->
-            <div class="cake-area">
+            <div class="cake-section">
                 <div style="text-align: center;">
-                    <div class="cake-emoji">
-                        <div class="candle-stick"></div>
-                        <div class="candle-flame" id="flame"></div>
+                    <div class="cake-wrapper">
+                        <div class="candle-simple"></div>
+                        <div class="flame-simple" id="flame"></div>
                         <span>🎂</span>
                     </div>
                     
-                    <button class="blow-button" id="blowBtn" onclick="blowCandle()">
-                        <span>🌬️</span> Phuko candle <span>💋</span>
+                    <button class="blow-candle-btn" id="blowBtn" onclick="blowCandle()">
+                        <span>🌬️</span> blow candle
                     </button>
 
-                    <div class="wish-text" id="wishMessage">
-                        Happy Birthday Bhavna! 🩷💋
+                    <div class="wish-message" id="wishMessage">
+                        happy birthday bhavna! 💗
                     </div>
                 </div>
             </div>
 
-            <!-- Footer with tumhare emojis -->
-            <div class="footer-emojis">
+            <!-- Footer -->
+            <div class="footer-emoji">
                 <span>🥹</span>
                 <span>🤭</span>
                 <span>❤️</span>
-                <span>💕</span>
-                <span>💗</span>
                 <span>🧿</span>
             </div>
         </div>
     </div>
 
     <!-- Music button (optional) -->
-    <div class="music-btn" onclick="playMusic()">
+    <div class="music-toggle" onclick="toggleMusic()">
         🎵
     </div>
 
@@ -471,37 +446,35 @@
     </audio>
 
     <script>
-        // Open card function
         function openCard() {
-            document.getElementById('entryScreen').classList.add('hide');
+            document.getElementById('entryOverlay').classList.add('hide');
             document.getElementById('mainContent').classList.add('show');
             
-            // Try music
+            // Try to play music
             const music = document.getElementById('bgMusic');
             music.play().catch(() => {});
             
-            // Small burst on open
-            for (let i = 0; i < 30; i++) {
+            // Small burst
+            for (let i = 0; i < 20; i++) {
                 setTimeout(() => {
-                    createBurst(['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿']);
+                    createBurst();
                 }, i * 30);
             }
         }
 
-        // Create burst with tumhare emojis
-        function createBurst(emojis) {
+        function createBurst() {
+            const emojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿', '🎂'];
             const emoji = document.createElement('div');
             emoji.className = 'burst-emoji';
             emoji.innerHTML = emojis[Math.floor(Math.random() * emojis.length)];
             emoji.style.left = '50%';
             emoji.style.top = '50%';
-            emoji.style.setProperty('--x', (Math.random() - 0.5) * 300 + 'px');
-            emoji.style.setProperty('--y', (Math.random() - 0.5) * 300 + 'px');
+            emoji.style.setProperty('--x', (Math.random() - 0.5) * 200 + 'px');
+            emoji.style.setProperty('--y', (Math.random() - 0.5) * 200 + 'px');
             document.body.appendChild(emoji);
-            setTimeout(() => emoji.remove(), 1500);
+            setTimeout(() => emoji.remove(), 1200);
         }
 
-        // Blow candle function
         function blowCandle() {
             const flame = document.getElementById('flame');
             const btn = document.getElementById('blowBtn');
@@ -513,18 +486,15 @@
             btn.disabled = true;
             wish.classList.add('show');
 
-            // Create burst - 300 emojis (perfect amount)
-            const emojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿'];
-            
-            for (let i = 0; i < 300; i++) {
+            // Medium burst - not too much
+            for (let i = 0; i < 150; i++) {
                 setTimeout(() => {
-                    createBurst(emojis);
+                    createBurst();
                 }, i * 5);
             }
         }
 
-        // Music play/pause
-        function playMusic() {
+        function toggleMusic() {
             const music = document.getElementById('bgMusic');
             if (music.paused) {
                 music.play();
@@ -536,7 +506,7 @@
         // Make functions global
         window.openCard = openCard;
         window.blowCandle = blowCandle;
-        window.playMusic = playMusic;
+        window.toggleMusic = toggleMusic;
     </script>
 </body>
 </html>
