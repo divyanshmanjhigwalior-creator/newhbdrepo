@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>My Cutest Bhavuuuuu 🎀</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +23,7 @@
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
+            width: 100%;
         }
 
         /* Floating hearts - different colors only */
@@ -33,6 +34,7 @@
             z-index: 2;
             animation: float-around 8s infinite ease-in-out;
             filter: drop-shadow(0 0 5px currentColor);
+            will-change: transform;
         }
 
         @keyframes float-around {
@@ -69,6 +71,7 @@
             align-items: center;
             justify-content: center;
             padding: 1rem;
+            width: 100%;
         }
 
         /* Entry card */
@@ -126,6 +129,10 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            user-select: none;
+            touch-action: manipulation;
         }
 
         .cute-btn:active {
@@ -144,7 +151,7 @@
 
         .birthday-content.active {
             display: block;
-            animation: fade-pop 1s ease;
+            animation: fade-pop 0.5s ease;
         }
 
         @keyframes fade-pop {
@@ -167,7 +174,7 @@
             position: relative;
         }
 
-        /* Image styles - your images from repo */
+        /* Image styles */
         .image-top {
             width: 100px;
             height: 100px;
@@ -190,6 +197,39 @@
             box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
         }
 
+        /* image3 for entry card */
+        .entry-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            border: 3px solid #ffb6c1;
+            margin: 1rem auto 0.5rem auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* image4 for main card */
+        .extra-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 35px;
+            border: 3px solid #ffb6c1;
+            margin: 1rem auto;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* GIF video style */
+        .gif-video {
+            width: 100%;
+            max-width: 280px;
+            border-radius: 20px;
+            margin: 1.5rem auto 0.5rem auto;
+            display: block;
+            border: 4px solid #ffb6c1;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+        }
+
         .name-big {
             font-family: 'Dancing Script', cursive;
             font-size: 4.5rem;
@@ -199,6 +239,7 @@
             margin: 0.5rem 0;
             text-shadow: 2px 2px 0 #ffcdd9;
             transform: rotate(1deg);
+            word-break: break-word;
         }
 
         .sticker-row {
@@ -235,6 +276,7 @@
             line-height: 1.8;
             color: #4a2f36;
             font-weight: 400;
+            word-break: break-word;
         }
 
         .message-box p i {
@@ -250,11 +292,12 @@
             margin: 1rem 0;
             color: #ff3366;
             animation: kiss-pop 1.5s infinite;
+            word-break: break-word;
         }
 
         @keyframes kiss-pop {
             0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.2); }
+            50% { transform: scale(1.1); }
         }
 
         .message-box::after {
@@ -272,6 +315,7 @@
             text-align: center;
             margin: 1rem 0;
             letter-spacing: 10px;
+            word-break: break-word;
         }
 
         /* Cute cake area */
@@ -287,7 +331,7 @@
         .cake-emoji-container {
             position: relative;
             display: inline-block;
-            font-size: 5.5rem;
+            font-size: 5rem;
             filter: drop-shadow(0 10px 10px #ffa6b9);
         }
 
@@ -305,7 +349,7 @@
 
         .flame-mini {
             position: absolute;
-            top: -38px;
+            top: -18px;
             left: 50%;
             transform: translateX(-50%);
             width: 18px;
@@ -322,7 +366,7 @@
 
         @keyframes flame-wiggle {
             0% { transform: translateX(-50%) scale(1) rotate(2deg); }
-            100% { transform: translateX(-50%) scale(1.15) rotate(-2deg); }
+            100% { transform: translateX(-50%) scale(1.1) rotate(-2deg); }
         }
 
         .blow-btn-cute {
@@ -332,7 +376,7 @@
             padding: 0.8rem 2rem;
             border-radius: 50px;
             font-weight: bold;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             box-shadow: 0 6px 0 #b54f6b;
             cursor: pointer;
             transition: 0.1s;
@@ -341,6 +385,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
+            touch-action: manipulation;
         }
 
         .blow-btn-cute:active {
@@ -348,16 +393,22 @@
             box-shadow: 0 0 0 #b54f6b;
         }
 
+        .blow-btn-cute:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
         /* Wish reveal */
         .wish-reveal {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: #ff3b5c;
             text-align: center;
             margin: 1rem 0;
             display: none;
             animation: pop-wish 0.5s;
             text-shadow: 2px 2px 0 #ffb8c6;
+            word-break: break-word;
         }
 
         @keyframes pop-wish {
@@ -376,6 +427,7 @@
             justify-content: center;
             gap: 8px;
             margin: 1rem 0;
+            flex-wrap: wrap;
         }
 
         .photo {
@@ -415,6 +467,7 @@
             opacity: 0.4;
             z-index: 5;
             animation: teddy-wave 4s infinite;
+            pointer-events: none;
         }
 
         @keyframes teddy-wave {
@@ -439,6 +492,7 @@
             color: #ff99bb;
             font-size: 1.5rem;
             animation: burst-fly 2s forwards;
+            will-change: transform, opacity;
         }
 
         @keyframes burst-fly {
@@ -449,15 +503,17 @@
         /* Music note */
         .music-note {
             position: fixed;
-            top: 20px;
-            right: 20px;
+            top: 15px;
+            right: 15px;
             background: rgba(255, 255, 255, 0.3);
             backdrop-filter: blur(5px);
-            padding: 0.5rem;
+            padding: 0.5rem 0.8rem;
             border-radius: 30px;
             font-size: 1.2rem;
             border: 1px solid white;
             z-index: 50;
+            cursor: pointer;
+            touch-action: manipulation;
         }
     </style>
 </head>
@@ -484,6 +540,8 @@
                 <div class="photo">💗</div>
                 <div class="photo">❤️</div>
             </div>
+            <!-- IMAGE 3 - on entry screen -->
+            <img class="entry-image" src="image3.png" alt="surprise" onerror="this.style.display='none'">
         </div>
     </div>
 
@@ -494,7 +552,7 @@
             <div class="polaroid-card">
                 <div style="text-align: center; font-size: 2rem;">💋 🩷 💗</div>
                 
-                <!-- IMAGE 1 - TOP (from repo) -->
+                <!-- IMAGE 1 - TOP -->
                 <img class="image-top" src="image1.png" alt="Bhavna" onerror="this.style.display='none'">
                 
                 <h1 class="name-big">Bhavna</h1>
@@ -516,7 +574,7 @@
                         <i>Happy Birthday myie cutest girl🩷💋 ,</i><br><br>
                         You're like my favorite candy - sweet, colorful, and I can't get enough! 🍬<br>
                         Every day with you feels like a hug from a teddy bear.<br><br>
-                        <div class="kiss-line">umwhhhh 💋💋💋💋</div>
+                        <span class="kiss-line">umwhhhh 💋💋💋💋</span><br>
                         <b style="color:#ff5277;">Happy birthday, my cute little cupcake! 🧁</b>
                     </p>
                 </div>
@@ -542,14 +600,23 @@
                     </div>
 
                     <!-- Cute counter with your emojis -->
-                    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 1rem; color: #b34560; font-size: 0.9rem;">
-                        <span>💋 bhaut sari kisssi for myie wifyyyyy </span>
-                        <span> loveyouuuuu janeman💋💗💕 </span>
+                    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 1rem; color: #b34560; font-size: 0.9rem; flex-wrap: wrap;">
+                        <span>💋 bhaut sari kisssi for myie wifyyyyy</span>
+                        <span>loveyouuuuu janeman💋💗💕</span>
                     </div>
                 </div>
 
-                <!-- IMAGE 2 - BOTTOM (from repo) -->
+                <!-- IMAGE 2 - BOTTOM -->
                 <img class="image-bottom" src="image2.png" alt="Bhavna" onerror="this.style.display='none'">
+
+                <!-- IMAGE 4 - extra image inside main card -->
+                <img class="extra-image" src="image4.png" alt="Bhavna" onerror="this.style.display='none'">
+
+                <!-- GIF (mp4) at very bottom -->
+                <video class="gif-video" autoplay loop muted playsinline>
+                    <source src="gif.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
 
                 <!-- Footer stickers with your emojis -->
                 <div style="display: flex; justify-content: space-between; padding: 0 10px; margin-top: 1rem;">
@@ -572,37 +639,41 @@
     </audio>
 
     <script>
-        // Create floating hearts - DIFFERENT COLORS ONLY
-        function createFloatingElements() {
-            // Different colored hearts
-            const heartColors = [
-                { emoji: '❤️', color: '#ff0000' },     // red
-                { emoji: '🧡', color: '#ff7700' },     // orange
-                { emoji: '💛', color: '#ffdd00' },     // yellow
-                { emoji: '💚', color: '#00aa00' },     // green
-                { emoji: '💙', color: '#0066ff' },     // blue
-                { emoji: '💜', color: '#aa00ff' },     // purple
-                { emoji: '🩷', color: '#ff69b4' },      // pink
-                { emoji: '🩵', color: '#88ccff' }       // light blue
-            ];
+        // Floating hearts colors
+        const heartColors = [
+            { emoji: '❤️', color: '#ff0000' },
+            { emoji: '🧡', color: '#ff7700' },
+            { emoji: '💛', color: '#ffdd00' },
+            { emoji: '💚', color: '#00aa00' },
+            { emoji: '💙', color: '#0066ff' },
+            { emoji: '💜', color: '#aa00ff' },
+            { emoji: '🩷', color: '#ff69b4' },
+            { emoji: '🩵', color: '#88ccff' }
+        ];
 
-            for (let i = 0; i < 30; i++) {
+        // Create initial floating hearts
+        function createFloatingHearts(count = 30) {
+            for (let i = 0; i < count; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'floating-heart';
-                    const randomHeart = heartColors[Math.floor(Math.random() * heartColors.length)];
-                    heart.innerHTML = randomHeart.emoji;
-                    heart.style.color = randomHeart.color;
+                    const random = heartColors[Math.floor(Math.random() * heartColors.length)];
+                    heart.innerHTML = random.emoji;
+                    heart.style.color = random.color;
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.top = Math.random() * 100 + '%';
                     heart.style.animationDuration = (5 + Math.random() * 8) + 's';
                     heart.style.fontSize = (1.2 + Math.random() * 1.8) + 'rem';
                     document.body.appendChild(heart);
+                    // Remove after animation ends to avoid too many elements
+                    setTimeout(() => heart.remove(), 10000);
                 }, i * 100);
             }
+        }
 
-            // Sparkles
-            for (let i = 0; i < 50; i++) {
+        // Create sparkles
+        function createSparkles(count = 30) {
+            for (let i = 0; i < count; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
@@ -610,9 +681,11 @@
                 sparkle.style.animationDelay = (Math.random() * 3) + 's';
                 document.body.appendChild(sparkle);
             }
+        }
 
-            // Bubbles
-            for (let i = 0; i < 10; i++) {
+        // Create bubbles
+        function createBubbles(count = 15) {
+            for (let i = 0; i < count; i++) {
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
                 bubble.style.width = (5 + Math.random() * 20) + 'px';
@@ -629,11 +702,10 @@
             document.getElementById('entry-screen').style.display = 'none';
             document.getElementById('birthday-main').classList.add('active');
             
-            // Try to play music
             const music = document.getElementById('bg-music');
             music.play().catch(() => {});
 
-            // Create heart burst with your emojis
+            // Burst on open
             const yourEmojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿'];
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
@@ -642,11 +714,11 @@
                     burst.innerHTML = yourEmojis[Math.floor(Math.random() * yourEmojis.length)];
                     burst.style.left = '50%';
                     burst.style.top = '50%';
-                    burst.style.setProperty('--x', (Math.random() - 0.5) * 900 + 'px');
-                    burst.style.setProperty('--y', (Math.random() - 0.5) * 600 + 'px');
+                    burst.style.setProperty('--x', (Math.random() - 0.5) * 400 + 'px');
+                    burst.style.setProperty('--y', (Math.random() - 0.5) * 400 + 'px');
                     document.body.appendChild(burst);
                     setTimeout(() => burst.remove(), 2000);
-                }, i * 30);
+                }, i * 20);
             }
         }
 
@@ -659,65 +731,48 @@
             if (flame.classList.contains('hide')) return;
             
             flame.classList.add('hide');
-            btn.style.opacity = '0.5';
             btn.disabled = true;
             wish.classList.add('show');
 
-            // Create burst with your emojis
             const yourEmojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿', '🎂'];
-            for (let i = 0; i < 300; i++) {
+            for (let i = 0; i < 200; i++) {
                 setTimeout(() => {
-                    const heart = document.createElement('div');
-                    heart.className = 'burst-heart';
-                    heart.innerHTML = yourEmojis[Math.floor(Math.random() * yourEmojis.length)];
-                    heart.style.left = '50%';
-                    heart.style.top = '70%';
-                    heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
-                    heart.style.setProperty('--x', (Math.random() - 0.5) * 500 + 'px');
-                    heart.style.setProperty('--y', (Math.random() - 0.5) * 400 + 'px');
-                    heart.style.animationDuration = '1.5s';
-                    document.body.appendChild(heart);
-                    setTimeout(() => heart.remove(), 1500);
+                    const burst = document.createElement('div');
+                    burst.className = 'burst-heart';
+                    burst.innerHTML = yourEmojis[Math.floor(Math.random() * yourEmojis.length)];
+                    burst.style.left = '50%';
+                    burst.style.top = '70%';
+                    burst.style.fontSize = (1 + Math.random() * 2) + 'rem';
+                    burst.style.setProperty('--x', (Math.random() - 0.5) * 500 + 'px');
+                    burst.style.setProperty('--y', (Math.random() - 0.5) * 400 + 'px');
+                    document.body.appendChild(burst);
+                    setTimeout(() => burst.remove(), 1500);
                 }, i * 5);
             }
         }
 
-        // Music play
+        // Music play/pause
         function playMusic() {
             const music = document.getElementById('bg-music');
-            if (music.paused) {
-                music.play();
-            } else {
-                music.pause();
-            }
+            if (music.paused) music.play();
+            else music.pause();
         }
 
-        // Initialize floating elements
+        // Initialize everything on page load
         window.onload = () => {
-            createFloatingElements();
-            // Keep adding floating hearts periodically
+            createFloatingHearts(30);
+            createSparkles(30);
+            createBubbles(15);
+            
+            // Continuously add new floating hearts every 3 seconds
             setInterval(() => {
-                const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🩷', '🩵'];
-                const colors = ['#ff0000', '#ff7700', '#ffdd00', '#00aa00', '#0066ff', '#aa00ff', '#ff69b4', '#88ccff'];
-                
-                const heart = document.createElement('div');
-                heart.className = 'floating-heart';
-                const idx = Math.floor(Math.random() * heartColors.length);
-                heart.innerHTML = heartColors[idx];
-                heart.style.color = colors[idx];
-                heart.style.left = Math.random() * 100 + '%';
-                heart.style.top = Math.random() * 100 + '%';
-                heart.style.animationDuration = (5 + Math.random() * 8) + 's';
-                heart.style.fontSize = (1.2 + Math.random() * 1.5) + 'rem';
-                document.body.appendChild(heart);
-                
-                setTimeout(() => heart.remove(), 10000);
-            }, 2000);
+                createFloatingHearts(3); // Add 3 at a time
+            }, 3000);
         };
 
-        // Make functions global
-        window.blowCandle = blowCandle;
+        // Expose functions globally
         window.openBirthday = openBirthday;
+        window.blowCandle = blowCandle;
         window.playMusic = playMusic;
     </script>
 </body>
