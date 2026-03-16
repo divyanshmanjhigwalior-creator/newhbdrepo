@@ -25,14 +25,14 @@
             overflow-x: hidden;
         }
 
-        /* Cute floating elements */
+        /* Floating hearts - different colors only */
         .floating-heart {
             position: absolute;
-            color: rgba(255, 120, 160, 0.6);
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             pointer-events: none;
             z-index: 2;
             animation: float-around 8s infinite ease-in-out;
+            filter: drop-shadow(0 0 5px currentColor);
         }
 
         @keyframes float-around {
@@ -133,7 +133,7 @@
             box-shadow: 0 0 0 #d45e7a, 0 12px 25px rgba(255, 80, 120, 0.4);
         }
 
-        /* Main birthday content (hidden initially) */
+        /* Main birthday content */
         .birthday-content {
             display: none;
             position: relative;
@@ -167,13 +167,27 @@
             position: relative;
         }
 
-        .polaroid-card::before {
-            content: '📸';
-            position: absolute;
-            bottom: 5px;
-            right: 20px;
-            font-size: 1.2rem;
-            opacity: 0.5;
+        /* Image styles - your images from repo */
+        .image-top {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border: 4px solid #ffb6c1;
+            margin: 0.5rem auto 1rem auto;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
+        }
+
+        .image-bottom {
+            width: 80px;
+            height: 80px;
+            border-radius: 40px;
+            border: 4px solid #ffb6c1;
+            margin: 1rem auto 0.5rem auto;
+            object-fit: cover;
+            display: block;
+            box-shadow: 0 10px 20px rgba(255, 105, 180, 0.3);
         }
 
         .name-big {
@@ -229,6 +243,20 @@
             font-family: 'Dancing Script', cursive;
         }
 
+        /* Kiss line - UMWWHHH */
+        .kiss-line {
+            font-size: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            color: #ff3366;
+            animation: kiss-pop 1.5s infinite;
+        }
+
+        @keyframes kiss-pop {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
         .message-box::after {
             content: '💌';
             position: absolute;
@@ -236,6 +264,14 @@
             right: -10px;
             font-size: 1.8rem;
             filter: drop-shadow(2px 4px 4px rgba(0,0,0,0.1));
+        }
+
+        /* Your emoji line */
+        .your-emojis {
+            font-size: 1.8rem;
+            text-align: center;
+            margin: 1rem 0;
+            letter-spacing: 10px;
         }
 
         /* Cute cake area */
@@ -387,7 +423,7 @@
             75% { transform: rotate(-10deg); }
         }
 
-        /* Loading hearts burst */
+        /* Heart burst */
         .heart-burst {
             position: fixed;
             top: 0;
@@ -438,15 +474,15 @@
         <div class="entry-card">
             <div class="cute-title">Bhavna</div>
             <div class="sub-cute">🌸 a special surprise 🌸</div>
-            <div style="font-size: 3rem; margin: 1rem 0;">🎀</div>
+            <div style="font-size: 3rem; margin: 1rem 0;">💋🩷</div>
             <button class="cute-btn" onclick="openBirthday()">
-                <span>✨</span> open for cuteness <span>✨</span>
+                <span>💋</span> open for cuteness <span>🩷</span>
             </button>
             <div class="photo-strip" style="margin-top: 2rem;">
-                <div class="photo">🧁</div>
+                <div class="photo">💋</div>
                 <div class="photo">🩷</div>
-                <div class="photo">🎈</div>
-                <div class="photo">🍰</div>
+                <div class="photo">💗</div>
+                <div class="photo">❤️</div>
             </div>
         </div>
     </div>
@@ -456,21 +492,31 @@
         <div style="position: relative; z-index: 10;">
             <!-- Polaroid main card -->
             <div class="polaroid-card">
-                <div style="text-align: center; font-size: 2rem;">🩷 🎀 🩷</div>
+                <div style="text-align: center; font-size: 2rem;">💋 🩷 💗</div>
+                
+                <!-- IMAGE 1 - TOP (from repo) -->
+                <img class="image-top" src="image1.png" alt="Bhavna" onerror="this.style.display='none'">
+                
                 <h1 class="name-big">Bhavna</h1>
                 
                 <div class="sticker-row">
-                    <span class="sticker">🧸 my teddy bear</span>
-                    <span class="sticker">🍭 so sweet</span>
-                    <span class="sticker">✨ cutie pie</span>
+                    <span class="sticker">💋 my kiss</span>
+                    <span class="sticker">🩷 my heart</span>
+                    <span class="sticker">🧿 nazar</span>
                 </div>
 
-                <!-- Message -->
+                <!-- Your emoji line -->
+                <div class="your-emojis">
+                    💋 🩷 💗 💕 ❤️ 🥹 🤭 🧿
+                </div>
+
+                <!-- Message with KISS LINE -->
                 <div class="message-box">
                     <p>
                         <i>My dearest Bhavna,</i><br><br>
                         You're like my favorite candy - sweet, colorful, and I can't get enough! 🍬<br>
-                        Every day with you feels like a hug from a teddy bear. <br><br>
+                        Every day with you feels like a hug from a teddy bear.<br><br>
+                        <div class="kiss-line">umwhhhh 💋💋💋💋</div>
                         <b style="color:#ff5277;">Happy birthday, my cute little cupcake! 🧁</b>
                     </p>
                 </div>
@@ -485,37 +531,40 @@
                         </div>
                         <div>
                             <button class="blow-btn-cute" id="blow-cute-btn" onclick="blowCandle()">
-                                <span>🌬️</span> blow the candle <span>🎂</span>
+                                <span>🌬️</span> blow the candle <span>💋</span>
                             </button>
                         </div>
                     </div>
                     
                     <!-- Wish reveal -->
                     <div class="wish-reveal" id="cute-wish">
-                        I LUV U FOREVER! 🩷🧸
+                        I LOVE U BHAVNA! 💋🩷
                     </div>
 
-                    <!-- Cute counter -->
+                    <!-- Cute counter with your emojis -->
                     <div style="display: flex; justify-content: center; gap: 15px; margin-top: 1rem; color: #b34560; font-size: 0.9rem;">
-                        <span>❤️‍🔥 1 million kisses</span>
-                        <span>🧸 1000 hugs</span>
+                        <span>💋 1 million kisses</span>
+                        <span>🩷 1 billion hearts</span>
                     </div>
                 </div>
 
-                <!-- Footer stickers -->
+                <!-- IMAGE 2 - BOTTOM (from repo) -->
+                <img class="image-bottom" src="image2.png" alt="Bhavna" onerror="this.style.display='none'">
+
+                <!-- Footer stickers with your emojis -->
                 <div style="display: flex; justify-content: space-between; padding: 0 10px; margin-top: 1rem;">
-                    <span style="font-size: 1.5rem;">🐻‍❄️</span>
-                    <span style="font-size: 1.5rem;">🌸</span>
-                    <span style="font-size: 1.5rem;">🦊</span>
-                    <span style="font-size: 1.5rem;">🍼</span>
+                    <span style="font-size: 1.5rem;">💋</span>
+                    <span style="font-size: 1.5rem;">🩷</span>
+                    <span style="font-size: 1.5rem;">💗</span>
+                    <span style="font-size: 1.5rem;">🧿</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Music note (just for cute) -->
+    <!-- Music note -->
     <div class="music-note" onclick="playMusic()">
-        🎵 🎶
+        🎵 🩷
     </div>
 
     <audio id="bg-music" loop>
@@ -523,24 +572,37 @@
     </audio>
 
     <script>
-        // Create floating hearts and sparkles
+        // Create floating hearts - DIFFERENT COLORS ONLY
         function createFloatingElements() {
-            // Hearts
-            for (let i = 0; i < 25; i++) {
+            // Different colored hearts
+            const heartColors = [
+                { emoji: '❤️', color: '#ff0000' },     // red
+                { emoji: '🧡', color: '#ff7700' },     // orange
+                { emoji: '💛', color: '#ffdd00' },     // yellow
+                { emoji: '💚', color: '#00aa00' },     // green
+                { emoji: '💙', color: '#0066ff' },     // blue
+                { emoji: '💜', color: '#aa00ff' },     // purple
+                { emoji: '🩷', color: '#ff69b4' },      // pink
+                { emoji: '🩵', color: '#88ccff' }       // light blue
+            ];
+
+            for (let i = 0; i < 30; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'floating-heart';
-                    heart.innerHTML = ['🩷', '🧡', '💛', '💚', '💙', '💜', '🤎'][Math.floor(Math.random() * 7)];
+                    const randomHeart = heartColors[Math.floor(Math.random() * heartColors.length)];
+                    heart.innerHTML = randomHeart.emoji;
+                    heart.style.color = randomHeart.color;
                     heart.style.left = Math.random() * 100 + '%';
                     heart.style.top = Math.random() * 100 + '%';
                     heart.style.animationDuration = (5 + Math.random() * 8) + 's';
-                    heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
+                    heart.style.fontSize = (1.2 + Math.random() * 1.8) + 'rem';
                     document.body.appendChild(heart);
                 }, i * 100);
             }
 
             // Sparkles
-            for (let i = 0; i < 30; i++) {
+            for (let i = 0; i < 20; i++) {
                 const sparkle = document.createElement('div');
                 sparkle.className = 'sparkle';
                 sparkle.style.left = Math.random() * 100 + '%';
@@ -550,7 +612,7 @@
             }
 
             // Bubbles
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 10; i++) {
                 const bubble = document.createElement('div');
                 bubble.className = 'bubble';
                 bubble.style.width = (5 + Math.random() * 20) + 'px';
@@ -567,16 +629,17 @@
             document.getElementById('entry-screen').style.display = 'none';
             document.getElementById('birthday-main').classList.add('active');
             
-            // Try to play music (will work after user interaction)
+            // Try to play music
             const music = document.getElementById('bg-music');
             music.play().catch(() => {});
 
-            // Create heart burst
+            // Create heart burst with your emojis
+            const yourEmojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿'];
             for (let i = 0; i < 50; i++) {
                 setTimeout(() => {
                     const burst = document.createElement('div');
                     burst.className = 'burst-heart';
-                    burst.innerHTML = ['🩷', '🌸', '✨', '🧸'][Math.floor(Math.random() * 4)];
+                    burst.innerHTML = yourEmojis[Math.floor(Math.random() * yourEmojis.length)];
                     burst.style.left = '50%';
                     burst.style.top = '50%';
                     burst.style.setProperty('--x', (Math.random() - 0.5) * 400 + 'px');
@@ -600,34 +663,22 @@
             btn.disabled = true;
             wish.classList.add('show');
 
-            // Create 500+ cute hearts burst
-            for (let i = 0; i < 600; i++) {
+            // Create burst with your emojis
+            const yourEmojis = ['💋', '🩷', '💗', '💕', '❤️', '🥹', '🤭', '🧿', '🎂'];
+            for (let i = 0; i < 300; i++) {
                 setTimeout(() => {
                     const heart = document.createElement('div');
                     heart.className = 'burst-heart';
-                    heart.innerHTML = ['🩷', '🧸', '🎀', '🌸', '✨', '💖', '🦊'][Math.floor(Math.random() * 7)];
+                    heart.innerHTML = yourEmojis[Math.floor(Math.random() * yourEmojis.length)];
                     heart.style.left = '50%';
                     heart.style.top = '70%';
-                    heart.style.fontSize = (1 + Math.random() * 2.5) + 'rem';
-                    heart.style.setProperty('--x', (Math.random() - 0.5) * 600 + 'px');
+                    heart.style.fontSize = (1 + Math.random() * 2) + 'rem';
+                    heart.style.setProperty('--x', (Math.random() - 0.5) * 500 + 'px');
                     heart.style.setProperty('--y', (Math.random() - 0.5) * 400 + 'px');
                     heart.style.animationDuration = '1.5s';
                     document.body.appendChild(heart);
                     setTimeout(() => heart.remove(), 1500);
                 }, i * 5);
-            }
-
-            // Add floating teddy bears
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const teddy = document.createElement('div');
-                    teddy.className = 'floating-heart';
-                    teddy.innerHTML = '🧸';
-                    teddy.style.left = Math.random() * 100 + '%';
-                    teddy.style.animationDuration = '4s';
-                    document.body.appendChild(teddy);
-                    setTimeout(() => teddy.remove(), 4000);
-                }, i * 100);
             }
         }
 
@@ -644,9 +695,27 @@
         // Initialize floating elements
         window.onload = () => {
             createFloatingElements();
+            // Keep adding floating hearts periodically
+            setInterval(() => {
+                const heartColors = ['❤️', '🧡', '💛', '💚', '💙', '💜', '🩷', '🩵'];
+                const colors = ['#ff0000', '#ff7700', '#ffdd00', '#00aa00', '#0066ff', '#aa00ff', '#ff69b4', '#88ccff'];
+                
+                const heart = document.createElement('div');
+                heart.className = 'floating-heart';
+                const idx = Math.floor(Math.random() * heartColors.length);
+                heart.innerHTML = heartColors[idx];
+                heart.style.color = colors[idx];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.top = Math.random() * 100 + '%';
+                heart.style.animationDuration = (5 + Math.random() * 8) + 's';
+                heart.style.fontSize = (1.2 + Math.random() * 1.5) + 'rem';
+                document.body.appendChild(heart);
+                
+                setTimeout(() => heart.remove(), 10000);
+            }, 2000);
         };
 
-        // Make blow function global
+        // Make functions global
         window.blowCandle = blowCandle;
         window.openBirthday = openBirthday;
         window.playMusic = playMusic;
