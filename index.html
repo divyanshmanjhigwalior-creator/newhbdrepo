@@ -819,122 +819,74 @@
         }
     });
 </script>
-<<div id="hidden-bday-photo" class="bday-container-hidden">
-    <img src="image5.png" alt="Bhavuuu" class="bday-img-perfect">
-    <p class="bday-text">I Love You, Bhavuuu! ❤️</p>
+<div id="bday-surprise-box" class="perfect-surprise-container">
+    <img src="image5.png" alt="Happy Birthday Bhavuuu" class="bday-img-perfect">
+    <p class="perfect-bday-text">You're the Best, Bhavuuu! ❤️</p>
 </div>
 
 <style>
-    /* 1. Shuruat me image ko ekdam chhupa do aur size zero kar do */
-    .bday-container-hidden {
-        display: none;
+    /* Container Styling: Ensures it's initially hidden and centered */
+    .perfect-surprise-container {
+        display: none; /* Button click ke pehle hide rahega */
         flex-direction: column;
         align-items: center;
-        margin-top: 50px;
+        justify-content: center;
+        margin: 50px auto;
         padding-bottom: 80px;
         width: 100%;
         text-align: center;
-        opacity: 0;
+        opacity: 0; /* Fade-in effect ke liye */
         transition: opacity 1s ease-in-out;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
     }
 
-    /* 2. Image ko ekdam SEEDHA (Straight) rakhne ke liye */
+    /* Image Styling: Fixes tilt and removes empty boxes */
     .bday-img-perfect {
         width: 85%;
         max-width: 320px;
         height: auto;
-        transform: rotate(0deg) !important; /* Kisi bhi rotation ko zero kar dega */
+        transform: rotate(0deg) !important; /* Forces image to stay straight */
+        border: none !important;
+        box-shadow: none !important;
+        background: transparent !important;
         border-radius: 20px;
-        border: 4px solid #ff69b4;
-        box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
+        display: block;
+        margin: 0 auto;
         animation: floatStraight 3s ease-in-out infinite;
     }
 
-    /* 3. Floating Animation (Only Up-Down, No Rotation) */
-    @keyframes floatStraight {
-        0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-15px) rotate(0deg); }
-    }
-
-    .bday-text {
+    /* Message Styling */
+    .perfect-bday-text {
         color: #ff69b4;
         font-family: 'Dancing Script', cursive;
         font-size: 1.5rem;
         margin-top: 15px;
         font-weight: bold;
-    }
-</style>
-
-<script>
-    // Ye function har 1 second me check karega ki kya "Open" button dab chuka hai
-    // Humne isme 'interval' lagaya hai taaki ye fail na ho
-    let checkClick = setInterval(function() {
-        // Agar aapke page par koi bhi aesa element dikhe jo pehle hidden tha (jaise note ya gif)
-        // Toh ye image ko bhi show kar dega.
-        
-        // Trick: Hum check kar rahe hain ki kya screen par 'block' display wala koi element aaya
-        // Jo normally button click ke baad hi aata hai.
-        document.addEventListener('click', function() {
-            setTimeout(function() {
-                var photo = document.getElementById('hidden-bday-photo');
-                if (photo) {
-                    photo.style.display = 'flex';
-                    photo.style.opacity = '1';
-                }
-            }, 300);
-        });
-    }, 1000);
-</script>
-<div id="surprise-container" style="display: none; flex-direction: column; align-items: center; justify-content: center; margin: 40px auto; width: 100%; text-align: center; background: none !important; border: none !important;">
-    
-    <img src="image5.png" alt="Bhavuuu" class="bday-img-clean">
-
-    <p style="color: #ff69b4; font-family: 'Dancing Script', cursive; font-size: 1.4rem; margin-top: 15px; background: none !important;">
-        I Love You, Bhavuuu! ❤️
-    </p>
-</div>
-
-<style>
-    .bday-img-clean {
-        width: 85%;
-        max-width: 320px;
-        height: auto;
-        
-        /* 1. Pink Box/Border/Shadow ko 100% hatane ke liye */
-        border: none !important; 
-        box-shadow: none !important;
-        outline: none !important;
         background: transparent !important;
-
-        /* 2. Tedhe-pan (Tilt) ko khatam karne ke liye */
-        transform: rotate(0deg) !important; 
-        
-        /* 3. Smooth edges (Optional, can set to 0 if not needed) */
-        border-radius: 15px; 
-        
-        display: block;
-        margin: 0 auto;
-        animation: simpleFloat 3s ease-in-out infinite;
     }
 
-    @keyframes simpleFloat {
+    /* Floating Animation (No Rotation) */
+    @keyframes floatStraight {
         0%, 100% { transform: translateY(0px) rotate(0deg); }
-        50% { transform: translateY(-12px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(0deg); }
     }
 </style>
 
 <script>
-    // Button click hone par hi show hoga (Opening page par hidden rahega)
-    document.addEventListener('click', function (event) {
+    // Logic: Shows the clean image section after the button click
+    document.addEventListener('click', function(event) {
         if (event.target.tagName === 'BUTTON' || event.target.closest('button')) {
             setTimeout(function() {
-                var container = document.getElementById('surprise-container');
-                if (container) {
-                    container.style.display = 'flex';
+                var surpriseBox = document.getElementById('bday-surprise-box');
+                if (surpriseBox) {
+                    surpriseBox.style.display = 'flex';
+                    surpriseBox.style.opacity = '1';
                     // Smoothing scroll taaki seedha image par focus jaye
                     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                 }
-            }, 500);
+            }, 500); // Small delay after click
         }
     });
 </script>
