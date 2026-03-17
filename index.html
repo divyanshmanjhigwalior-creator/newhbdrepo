@@ -777,40 +777,23 @@
 <video class="gif-video" autoplay loop muted playsinline>
     <source src="muah-hug.mp4" type="video/mp4">
 </video>
-<div class="footer-image-section">
-    <img src="image5.png" alt="Happy Birthday Bhavuuu" class="bday-gift-img">
+<div id="bday-photo-section" style="display: none; flex-direction: column; align-items: center; margin-top: 30px; padding-bottom: 50px; width: 100%;">
+    <img src="image5.png" alt="Bhavuuu" class="bday-gift-img">
 </div>
 
 <style>
-    /* Image ko page ke center mein lane ke liye */
-    .footer-image-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin-top: 40px;      /* GIF se thodi doori */
-        padding-bottom: 60px;   /* Page ke bilkul end mein space */
-        width: 100%;
-    }
-
-    /* Image ka look aur animations */
     .bday-gift-img {
-        width: 85%;            /* Mobile screens ke liye perfect size */
-        max-width: 350px;      /* Laptop par image bahut badi nahi dikhegi */
+        width: 85%;
+        max-width: 320px;
         height: auto;
-        border-radius: 20px;    /* Smooth rounded corners */
-        border: 4px solid #ff69b4; /* Romantic Pink Border */
-        box-shadow: 0 0 25px rgba(255, 105, 180, 0.5); /* Glowing effect */
-        
-        /* Choti si animation taaki photo thodi move kare */
+        border-radius: 20px;
+        border: 4px solid #ff69b4;
+        box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
         animation: floatImage 3s ease-in-out infinite;
     }
 
-    /* Floating animation code */
     @keyframes floatImage {
-        0% { transform: translateY(0px); }
+        0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-10px); }
-        100% { transform: translateY(0px); }
     }
 </style>
-
