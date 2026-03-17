@@ -839,3 +839,20 @@
         }
     });
 </script>
+/* Free OCR extension box hatane ke liye */
+div[class*="ocr"]:empty,
+div[id*="ocr"]:empty,
+div[class*="OCR"]:empty,
+div[id*="OCR"]:empty,
+iframe[src*="ocr"],
+div:contains("Free OCR") {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
+}
