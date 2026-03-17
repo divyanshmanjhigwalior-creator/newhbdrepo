@@ -777,36 +777,31 @@
 <video class="gif-video" autoplay loop muted playsinline>
     <source src="muah-hug.mp4" type="video/mp4">
 </video>
-<div id="bday-photo-section" style="display: none; flex-direction: column; align-items: center; margin-top: 40px; padding-bottom: 60px; width: 100%;">
-    <img src="image5.png" alt="Bhavuuu" class="bday-gift-img">
+<div id="final-bday-image" style="display: none; flex-direction: column; align-items: center; margin-top: 40px; padding-bottom: 60px; width: 100%;">
+    <img src="image5.png" alt="Bhavuuu" style="width: 85%; max-width: 320px; height: auto; border-radius: 20px; border: 4px solid #ff69b4; box-shadow: 0 0 25px rgba(255, 105, 180, 0.6); animation: floatImg 3s ease-in-out infinite;">
 </div>
 
 <style>
-    .bday-gift-img {
-        width: 85%;
-        max-width: 320px;
-        height: auto;
-        border-radius: 20px;
-        border: 4px solid #ff69b4;
-        box-shadow: 0 0 25px rgba(255, 105, 180, 0.6);
-        animation: floatImage 3s ease-in-out infinite;
-    }
-
-    @keyframes floatImage {
+    @keyframes floatImg {
         0%, 100% { transform: translateY(0); }
         50% { transform: translateY(-10px); }
     }
 </style>
 
 <script>
-    // Agar aapke button ka function name alag hai, toh 'openCard' ki jagah wo likhein
-    const originalFunction = window.openCard; 
-    
-    window.openCard = function() {
-        // Purana logic chalayein (GIF, Music, etc.)
-        if (typeof originalFunction === "function") originalFunction();
-        
-        // Nayi photo show karein
-        document.getElementById('bday-photo-section').style.display = 'flex';
-    };
+    // Ye script dhyan rakhega ki jab bhi aapka 'Open' button dabega, image show ho jaye
+    document.addEventListener('click', function (event) {
+        // Agar click kiya gaya element ek BUTTON hai
+        if (event.target.tagName === 'BUTTON') {
+            // 0.5 second ka delay taaki page load hone ke baad image aaye
+            setTimeout(function() {
+                var photo = document.getElementById('final-bday-image');
+                if (photo) {
+                    photo.style.display = 'flex';
+                    // Screen ko thoda scroll karega taaki image dikhe
+                    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                }
+            }, 500); 
+        }
+    });
 </script>
