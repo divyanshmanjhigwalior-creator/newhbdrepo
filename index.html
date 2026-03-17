@@ -819,3 +819,47 @@
         }
     });
 </script>
+<div id="surprise-image-container" style="display: none; flex-direction: column; align-items: center; justify-content: center; margin: 40px auto; width: 100%; text-align: center;">
+    
+    <img src="image5.png" alt="Bhavuuu" class="bday-gift-img-straight">
+
+</div>
+
+<style>
+    .bday-gift-img-straight {
+        width: 85%;
+        max-width: 320px;
+        height: auto;
+        
+        /* Ye line kisi bhi rotation ko khatam karke image ko seedha kar degi */
+        transform: rotate(0deg) skew(0deg) !important; 
+        
+        border-radius: 20px;
+        border: 4px solid #ff69b4;
+        box-shadow: 0 0 25px rgba(255, 105, 180, 0.5);
+        display: block;
+        margin: 0 auto;
+        
+        /* Seedhi upar-neeche wali animation */
+        animation: straightFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes straightFloat {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-15px) rotate(0deg); }
+    }
+</style>
+
+<script>
+    // Button click hone par hi show hoga (Opening page par hidden rahega)
+    document.addEventListener('click', function(event) {
+        if (event.target.tagName === 'BUTTON' || event.target.closest('button')) {
+            setTimeout(function() {
+                var container = document.getElementById('surprise-image-container');
+                if (container) {
+                    container.style.display = 'flex';
+                }
+            }, 500);
+        }
+    });
+</script>
